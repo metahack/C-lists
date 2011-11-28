@@ -2,7 +2,18 @@
 
 int main (void) {
 
-  char x = getchar();
+  char status_char = 'a';
 
-  printf("...\n%c\n...\n", x);
+  while (status_char != 'q') {
+
+    printf("\nenter an option : ");
+    status_char = getchar();
+
+    if (status_char == 'q') {
+      printf("\nbreaking\n");
+      break;
+    }
+    printf("\nnot q\n");
+  }
+  printf("...\nbye\n");
 } // int main void

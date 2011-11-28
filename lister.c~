@@ -4,5 +4,5 @@ int main (void) {
 
   char x = getchar();
 
-  printf("...\n%c\n...", x);
+  printf("...\n%c\n...\n", x);
 } // int main void
