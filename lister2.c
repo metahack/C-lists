@@ -5,6 +5,8 @@
 
 void get_control_character(char *);
 void process_line(char line[]);
+void print_line(char []);
+void print_list(int, char[][100]);
 int main (void) {
 
   char state = 'x';
@@ -21,6 +23,10 @@ int main (void) {
 
     }
 
+    if (state == 'p') {
+      print_list(line_count, words);
+    }
+
     if (state == 'i') {
 
       printf("please enter some data : ");
@@ -28,6 +34,7 @@ int main (void) {
       process_line(words[line_count]);
       printf("...%c%c%c\n", words[line_count][0], words[line_count][1], 
 	     words[line_count][2]);
+      line_count++;
     }
   }
   return 0;
@@ -55,6 +62,7 @@ void get_control_character(char * state) {
     
   }
 
+  
   printf("state = %c\n", *state);
 }
 
@@ -70,6 +78,25 @@ void process_line(char line[]) {
   } while (current_char != '\n');
   printf("...%d...\n", position);
 
+}
 
+void print_line(char list[]) {
+
+  int i = 0;
   
+  printf("%c", list[i]);
+  do {
+    i++;
+    printf("%c", list[i]);
+  } while (list[i] != '\n');
+}
+
+void print_list(int line_count, char words[][100]) {
+  int i = 0;
+
+  while (i < line_count) {
+
+    print_line(words[i]);
+    i++;
+  }
 }
