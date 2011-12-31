@@ -1,3 +1,11 @@
+/*
+TO DO
+    December 21, 2011
+    print "invalid entry" warning, can use else-if statements in main loop
+    you appear to be storing newlines in strings
+    declare structs before functions, make sure functions are declared and defined in order of use.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -5,7 +13,7 @@
 
 void get_control_character(char *);
 
-void print_line(char []);
+/* void print_line(char []);*/
 
 
 struct letter_chain {
@@ -20,13 +28,13 @@ struct line_chain {
 void print_list(struct line_chain * top);
 void process_line(struct line_chain ** top);
 struct letter_chain * get_line(void);
-void print_line_2(struct letter_chain* current);
+/*void print_line_2(struct letter_chain* current);*/
 
 int main (void) {
 
   char state = 'x';
-  char words[100][100];
-  int line_count = 0;
+      /* char words[100][100];
+ int line_count = 0;*/
 
   struct line_chain* top = NULL;
  while (1) {
@@ -48,12 +56,10 @@ int main (void) {
       printf("please enter some data : ");
 
       process_line(&top);
-      line_count++;
+      /*      line_count++;*/
     }
   }
   return 0;
-
-  
 }
 
 void get_control_character(char * state) {
@@ -90,20 +96,21 @@ void process_line(struct line_chain ** top) {
   line_node->line = line;
   line_node->next = *top;
   *top = line_node;
-
+  /*
   struct line_chain* top_temp = *top;
 
   while (temp != NULL) {
-    printf("...%c,,,", temp->letter);
+        printf("...%c,,,", temp->letter);
     temp = temp->next;
   }
   printf("\n");
   while (top_temp != NULL) {
-    printf("--%c--", top_temp->line->letter);
+       printf("--%c--", top_temp->line->letter);
     top_temp = top_temp->next;
   }
+  */
 }
-
+/*
 void print_line(char list[]) {
 
   int i = 0;
@@ -114,22 +121,22 @@ void print_line(char list[]) {
     printf("%c", list[i]);
   } while (list[i] != '\n');
 }
+*/
 
 void print_list(struct line_chain * top) {
 
-  printf("print_list start\n");
+  /*  printf("print_list start\n");*/
   struct line_chain * temp_chain = top;
   while (temp_chain != NULL) {
-    printf("outside outer while\n");
+    /*    printf("outside outer while\n");*/
     struct letter_chain * temp_letters = temp_chain->line;
     while(temp_letters != NULL) {
       printf("%c", temp_letters->letter);
       temp_letters = temp_letters->next;
     }
     temp_chain = temp_chain->next;
-    printf("\n");
   }
-
+  printf("\n");
 }
 
 struct letter_chain * get_line(void) {
@@ -154,7 +161,7 @@ struct letter_chain * get_line(void) {
   }
   return head;
 }
-
+/*
 void print_line_2(struct letter_chain* line) {
   struct letter_chain *current = line;
 
@@ -164,3 +171,4 @@ void print_line_2(struct letter_chain* line) {
     current = current->next;
   } while (current != NULL);
 }
+*/  
